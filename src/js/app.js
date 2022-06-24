@@ -29,14 +29,6 @@ function render(variables = {}) {
   let cover = `<div class="cover"><img src="${variables.background}" /></div>`;
   if (variables.includeCover == false) cover = "<div class='cover'></div>";
 
-
-  let location = 
-  if (variables.city !== null && variables.country !== null ? ""){
-    location = `${variables.city}, ${variables.country}`
-  }
-
-
-
   // reset the website body with the new html output
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
@@ -44,12 +36,18 @@ function render(variables = {}) {
           <h1>${variables.name == null ? "" : variables.name} 
           ${variables.lastname || ""}
           </h1>
+          <p> ${variables.city == null ? "" : variables.city + ","} ${
+    variables.country == null ? "" : variables.country
+  }</p>
           <h2>${variables.role || ""}</h2>
-          <h3>${location}
-          </h3>
-          <ul class="position-right">
-            <li><a href="https://twitter.com/4geeksacademy"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="https://github.com/4geeksacademy"><i class="fab fa-github"></i></a></li>
+         
+          <ul class=${variables.socialMediaPosition}>
+            <li><a href="https://twitter.com/${
+              variables.twitter
+            }"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="https://github.com/${
+              variables.github
+            }"><i class="fab fa-github"></i></a></li>
             <li><a href="https://linkedin.com/4geeksacademy"><i class="fab fa-linkedin"></i></a></li>
             <li><a href="https://instagram.com/4geeksacademy"><i class="fab fa-instagram"></i></a></li>
           </ul>
