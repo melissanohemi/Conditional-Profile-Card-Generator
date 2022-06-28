@@ -36,10 +36,10 @@ function render(variables = {}) {
           <h1>${variables.name == null ? "" : variables.name} 
           ${variables.lastname || ""}
           </h1>
-          <p> ${variables.city == null ? "" : variables.city + ","} ${
+          <h2> ${variables.city == null ? "" : variables.city + ","} ${
     variables.country == null ? "" : variables.country
-  }</p>
-          <h2>${variables.role || ""}</h2>
+  }</h2>
+          <h3>${variables.role || ""}</h3>
          
           <ul class=${variables.socialMediaPosition}>
             <li><a href="https://twitter.com/${
